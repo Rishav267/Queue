@@ -1,0 +1,26 @@
+
+
+bool validateStackSequences(int* pushed, int pushedSize, int* popped, int poppedSize){
+    
+     if(pushedSize==0 || poppedSize==0)
+    {
+        return true;
+    }
+   
+    int i,j=0;
+    int stack[pushedSize];
+    int top=-1;
+   
+    for(i=0;i<pushedSize;i++)
+    {
+        stack[++top]=*(pushed+i);
+           
+        while(top!=-1 && stack[top]==*(popped+j))
+        {
+            top--;
+            j++;
+        }
+    }
+return top==-1?true:false;
+
+}
